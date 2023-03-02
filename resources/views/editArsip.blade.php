@@ -44,7 +44,7 @@
                 <label for="file" class="form-label">Upload File</label>
                 <input type="file" class="form-control-file" id="file" name="file" value="{{old('file')}}"><a href="{{$arsip->file}}">Lihat File</a>
                 <li>Kosongkan jika tidak ingin mengganti file</li>
-                <li>Tipe file docx,doc,pdf</li>
+                <li>Tipe file docx,doc,pdf,png,jpeg,jpg</li>
             </div>
             
             <br>

@@ -43,7 +43,7 @@
             <div class="mb-3 mt-4">
                 <label for="file" class="form-label">Upload File</label>
                 <input type="file" class="form-control-file" id="file" name="file" value="{{old('file')}}">
-                <li>Tipe file docx,doc,pdf</li>
+                <li>Tipe file docx,doc,pdf,png,jpeg,jpg</li>
             </div>
             
             <br>

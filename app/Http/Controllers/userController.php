@@ -33,7 +33,7 @@ class userController extends Controller
             'nama'      => 'required|string',
             'dari'      => 'required|string',
             'tanggal'   => 'required',
-            'file'      => 'required|file|mimes:doc,pdf,docx|max:50000',
+            'file'      => 'required|file|mimes:doc,pdf,docx,jpeg,jpg,png|max:50000',
         ]);
 
         $id = Auth::user()->id; 
@@ -70,7 +70,7 @@ class userController extends Controller
             'nama'      => 'required|string',
             'dari'      => 'required|string',
             'tanggal'   => 'required',
-            'file'      => 'nullable|file|mimes:docx,doc,pdf|max:50000',
+            'file'      => 'nullable|file|mimes:docx,doc,pdf,jpeg,jpg,png|max:50000',
         ]);
 
         $arsip = DB::table('arsips')->where('id',$id)->first();
