@@ -88,8 +88,11 @@
             
            <!--Logout-->
            
-                <li class="logout nav-item">
+                <li class="logout">
+                    <a class="nav-link"
+                    aria-expanded="true" aria-controls="collapseTwo">
                     <button type="button" data-toggle="modal" data-target="#logoutModal"><i class="fas fa-sign-out-alt"></i><span>Logout</span></button>
+                    </a>
                 </li>
            
             

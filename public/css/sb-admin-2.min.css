@@ -4490,6 +4490,8 @@ input[type=submit].btn-block {
     border-color: #dddfeb #dddfeb #fff
 }
 
+
+
 .nav-tabs .dropdown-menu {
     margin-top: -1px;
     border-top-left-radius: 0;
@@ -4512,7 +4514,20 @@ input[type=submit].btn-block {
     text-align: center
 }
 
+.nav-fill .logout,
+.nav-fill>.nav-link {
+    flex: 1 1 auto;
+    text-align: center
+}
+
 .nav-justified .nav-item,
+.nav-justified>.nav-link {
+    flex-basis: 0;
+    flex-grow: 1;
+    text-align: center
+}
+
+.nav-justified .logout,
 .nav-justified>.nav-link {
     flex-basis: 0;
     flex-grow: 1;
@@ -11071,6 +11086,16 @@ a:focus {
     animation-timing-function: transform cubic-bezier(.18, 1.25, .4, 1), opacity cubic-bezier(0, 1, .4, 1)
 }
 
+.animated--grow-in,
+.sidebar .logout .collapse {
+    -webkit-animation-name: growIn;
+    animation-name: growIn;
+    -webkit-animation-duration: .2s;
+    animation-duration: .2s;
+    -webkit-animation-timing-function: transform cubic-bezier(.18, 1.25, .4, 1), opacity cubic-bezier(0, 1, .4, 1);
+    animation-timing-function: transform cubic-bezier(.18, 1.25, .4, 1), opacity cubic-bezier(0, 1, .4, 1)
+}
+
 @-webkit-keyframes fadeIn {
     0% {
         opacity: 0
@@ -11343,8 +11368,25 @@ a:focus {
     font-family: 'Font Awesome 5 Free'
 }
 
+.sidebar .logout.dropdown .dropdown-toggle::after,
+.topbar .logout.dropdown .dropdown-toggle::after {
+    width: 1rem;
+    text-align: center;
+    float: right;
+    vertical-align: 0;
+    border: 0;
+    font-weight: 900;
+    content: '\f105';
+    font-family: 'Font Awesome 5 Free'
+}
+
 .sidebar .nav-item.dropdown.show .dropdown-toggle::after,
 .topbar .nav-item.dropdown.show .dropdown-toggle::after {
+    content: '\f107'
+}
+
+.sidebar .logout.dropdown.show .dropdown-toggle::after,
+.topbar .logout.dropdown.show .dropdown-toggle::after {
     content: '\f107'
 }
 
@@ -11353,8 +11395,22 @@ a:focus {
     position: relative
 }
 
+.sidebar .logout .nav-link,
+.topbar .logout .nav-link {
+    position: relative
+}
+
 .sidebar .nav-item .nav-link .badge-counter,
 .topbar .nav-item .nav-link .badge-counter {
+    position: absolute;
+    transform: scale(.7);
+    transform-origin: top right;
+    right: .25rem;
+    margin-top: -.25rem
+}
+
+.sidebar .logout .nav-link .badge-counter,
+.topbar .logout .nav-link .badge-counter {
     position: absolute;
     transform: scale(.7);
     transform-origin: top right;
@@ -11532,11 +11588,25 @@ a:focus {
     position: relative
 }
 
+.sidebar .logout {
+    position: relative
+}
+
 .sidebar .nav-item:last-child {
     margin-bottom: 1rem
 }
 
+.sidebar .logout:last-child {
+    margin-bottom: 1rem
+}
+
 .sidebar .nav-item .nav-link {
+    text-align: center;
+    padding: .75rem 1rem;
+    width: 6.5rem
+}
+
+.sidebar .logout .nav-link {
     text-align: center;
     padding: .75rem 1rem;
     width: 6.5rem
@@ -11547,11 +11617,27 @@ a:focus {
     display: block
 }
 
+.sidebar .logout .nav-link span {
+    font-size: .65rem;
+    display: block
+}
+
 .sidebar .nav-item.active .nav-link {
     font-weight: 700
 }
 
+.sidebar .logout .active .nav-link {
+    font-weight: 700
+}
+
 .sidebar .nav-item .collapse {
+    position: absolute;
+    left: calc(6.5rem + 1.5rem / 2);
+    z-index: 1;
+    top: 2px
+}
+
+.sidebar .logout .collapse {
     position: absolute;
     left: calc(6.5rem + 1.5rem / 2);
     z-index: 1;
@@ -11563,7 +11649,17 @@ a:focus {
     box-shadow: 0 .15rem 1.75rem 0 rgba(58, 59, 69, .15)
 }
 
+.sidebar .logout .collapse .collapse-inner {
+    border-radius: .35rem;
+    box-shadow: 0 .15rem 1.75rem 0 rgba(58, 59, 69, .15)
+}
+
 .sidebar .nav-item .collapsing {
+    display: none;
+    transition: none
+}
+
+.sidebar .logout .collapsing {
     display: none;
     transition: none
 }
@@ -11576,8 +11672,27 @@ a:focus {
     margin: 0 0 1rem 0
 }
 
+.sidebar .logout .collapse .collapse-inner,
+.sidebar .logout .collapsing .collapse-inner {
+    padding: .5rem 0;
+    min-width: 10rem;
+    font-size: .85rem;
+    margin: 0 0 1rem 0
+}
+
 .sidebar .nav-item .collapse .collapse-inner .collapse-header,
 .sidebar .nav-item .collapsing .collapse-inner .collapse-header {
+    margin: 0;
+    white-space: nowrap;
+    padding: .5rem 1.5rem;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: .65rem;
+    color: #b7b9cc
+}
+
+.sidebar .logout .collapse .collapse-inner .collapse-header,
+.sidebar .logout .collapsing .collapse-inner .collapse-header {
     margin: 0;
     white-space: nowrap;
     padding: .5rem 1.5rem;
@@ -11598,8 +11713,24 @@ a:focus {
     white-space: nowrap
 }
 
+.sidebar .logout .collapse .collapse-inner .collapse-item,
+.sidebar .logout .collapsing .collapse-inner .collapse-item {
+    padding: .5rem 1rem;
+    margin: 0 .5rem;
+    display: block;
+    color: #3a3b45;
+    text-decoration: none;
+    border-radius: .35rem;
+    white-space: nowrap
+}
+
 .sidebar .nav-item .collapse .collapse-inner .collapse-item:hover,
 .sidebar .nav-item .collapsing .collapse-inner .collapse-item:hover {
+    background-color: #eaecf4
+}
+
+.sidebar .logout .collapse .collapse-inner .collapse-item:hover,
+.sidebar .logout .collapsing .collapse-inner .collapse-item:hover {
     background-color: #eaecf4
 }
 
@@ -11608,8 +11739,19 @@ a:focus {
     background-color: #dddfeb
 }
 
+.sidebar .logout .collapse .collapse-inner .collapse-item:active,
+.sidebar .logout .collapsing .collapse-inner .collapse-item:active {
+    background-color: #dddfeb
+}
+
 .sidebar .nav-item .collapse .collapse-inner .collapse-item.active,
 .sidebar .nav-item .collapsing .collapse-inner .collapse-item.active {
+    color: #4e73df;
+    font-weight: 700
+}
+
+.sidebar .logout .collapse .collapse-inner .collapse-item.active,
+.sidebar .logout .collapsing .collapse-inner .collapse-item.active {
     color: #4e73df;
     font-weight: 700
 }
@@ -11737,7 +11879,21 @@ a:focus {
         animation: none
     }
 
+    .sidebar .logout .collapse {
+        position: relative;
+        left: 0;
+        z-index: 1;
+        top: 0;
+        -webkit-animation: none;
+        animation: none
+    }
+
     .sidebar .nav-item .collapse .collapse-inner {
+        border-radius: 0;
+        box-shadow: none
+    }
+
+    .sidebar .logout .collapse .collapse-inner {
         border-radius: 0;
         box-shadow: none
     }
@@ -11747,12 +11903,30 @@ a:focus {
         transition: height .15s ease
     }
 
+    .sidebar .logout .collapsing {
+        display: block;
+        transition: height .15s ease
+    }
+
     .sidebar .nav-item .collapse,
     .sidebar .nav-item .collapsing {
         margin: 0 1rem
     }
 
+    .sidebar .logout .collapse,
+    .sidebar .logout .collapsing {
+        margin: 0 1rem
+    }
+
     .sidebar .nav-item .nav-link {
+        display: block;
+        width: 100%;
+        text-align: left;
+        padding: 1rem;
+        width: 14rem
+    }
+
+    .sidebar .logout .nav-link {
         display: block;
         width: 100%;
         text-align: left;
@@ -11765,7 +11939,17 @@ a:focus {
         margin-right: .25rem
     }
 
+    .sidebar .logout .nav-link i {
+        font-size: 17px;
+        margin-right: .25rem
+    }
+
     .sidebar .nav-item .nav-link span {
+        font-size: 17px;
+        display: inline
+    }
+
+    .sidebar .logout .nav-link span {
         font-size: 17px;
         display: inline
     }
@@ -11781,7 +11965,22 @@ a:focus {
         font-family: 'Font Awesome 5 Free'
     }
 
+    .sidebar .logout .nav-link[data-toggle=collapse]::after {
+        width: 1rem;
+        text-align: center;
+        float: right;
+        vertical-align: 0;
+        border: 0;
+        font-weight: 900;
+        content: '\f107';
+        font-family: 'Font Awesome 5 Free'
+    }
+
     .sidebar .nav-item .nav-link[data-toggle=collapse].collapsed::after {
+        content: '\f105'
+    }
+
+    .sidebar .logout .nav-link[data-toggle=collapse].collapsed::after {
         content: '\f105'
     }
 
@@ -11815,7 +12014,25 @@ a:focus {
         animation-timing-function: transform cubic-bezier(.18, 1.25, .4, 1), opacity cubic-bezier(0, 1, .4, 1)
     }
 
+    .sidebar.toggled .logout .collapse {
+        position: absolute;
+        left: calc(6.5rem + 1.5rem / 2);
+        z-index: 1;
+        top: 2px;
+        -webkit-animation-name: growIn;
+        animation-name: growIn;
+        -webkit-animation-duration: .2s;
+        animation-duration: .2s;
+        -webkit-animation-timing-function: transform cubic-bezier(.18, 1.25, .4, 1), opacity cubic-bezier(0, 1, .4, 1);
+        animation-timing-function: transform cubic-bezier(.18, 1.25, .4, 1), opacity cubic-bezier(0, 1, .4, 1)
+    }
+
     .sidebar.toggled .nav-item .collapse .collapse-inner {
+        box-shadow: 0 .15rem 1.75rem 0 rgba(58, 59, 69, .15);
+        border-radius: .35rem
+    }
+
+    .sidebar.toggled .logout .collapse .collapse-inner {
         box-shadow: 0 .15rem 1.75rem 0 rgba(58, 59, 69, .15);
         border-radius: .35rem
     }
@@ -11825,12 +12042,26 @@ a:focus {
         transition: none
     }
 
+    .sidebar.toggled .logout .collapsing {
+        display: none;
+        transition: none
+    }
+
     .sidebar.toggled .nav-item .collapse,
     .sidebar.toggled .nav-item .collapsing {
         margin: 0
     }
 
+    .sidebar.toggled .logout .collapse,
+    .sidebar.toggled .logout .collapsing {
+        margin: 0
+    }
+
     .sidebar.toggled .nav-item:last-child {
+        margin-bottom: 1rem
+    }
+
+    .sidebar.toggled .logout:last-child {
         margin-bottom: 1rem
     }
 
@@ -11840,7 +12071,19 @@ a:focus {
         width: 6.5rem
     }
 
+    .sidebar.toggled .logout .nav-link {
+        text-align: center;
+        padding: .75rem 1rem;
+        width: 6.5rem
+    }
+
+
     .sidebar.toggled .nav-item .nav-link span {
+        font-size: .65rem;
+        display: block
+    }
+
+    .sidebar.toggled .logout .nav-link span {
         font-size: .65rem;
         display: block
     }
@@ -11849,7 +12092,15 @@ a:focus {
         margin-right: 0
     }
 
+    .sidebar.toggled .logout .nav-link i {
+        margin-right: 0
+    }
+
     .sidebar.toggled .nav-item .nav-link[data-toggle=collapse]::after {
+        display: none
+    }
+
+    .sidebar.toggled .logout .nav-link[data-toggle=collapse]::after {
         display: none
     }
 
@@ -11882,13 +12133,28 @@ a:focus {
     color: #858796
 }
 
+.sidebar-light .logout .nav-link {
+    color: #858796
+}
+
 .sidebar-light .nav-item .nav-link i {
     color: #d1d3e2
 }
 
+.sidebar-light .logout .nav-link i {
+    color: #d1d3e2
+}
+
+
 .sidebar-light .nav-item .nav-link:active,
 .sidebar-light .nav-item .nav-link:focus,
 .sidebar-light .nav-item .nav-link:hover {
+    color: #6e707e
+}
+
+.sidebar-light .logout .nav-link:active,
+.sidebar-light .logout .nav-link:focus,
+.sidebar-light .logout .nav-link:hover {
     color: #6e707e
 }
 
@@ -11898,7 +12164,18 @@ a:focus {
     color: #6e707e
 }
 
+.sidebar-light .logout .nav-link:active i,
+.sidebar-light .logout .nav-link:focus i,
+.sidebar-light .logout .nav-link:hover i {
+    color: #6e707e
+}
+
+
 .sidebar-light .nav-item .nav-link[data-toggle=collapse]::after {
+    color: #b7b9cc
+}
+
+.sidebar-light .logout .nav-link[data-toggle=collapse]::after {
     color: #b7b9cc
 }
 
@@ -11906,7 +12183,15 @@ a:focus {
     color: #6e707e
 }
 
+.sidebar-light .logout.active .nav-link {
+    color: #6e707e
+}
+
 .sidebar-light .nav-item.active .nav-link i {
+    color: #6e707e
+}
+
+.sidebar-light .logout.active .nav-link i {
     color: #6e707e
 }
 
@@ -11938,13 +12223,28 @@ a:focus {
     color: rgba(255, 255, 255, .8)
 }
 
+.sidebar-dark .logout .nav-link {
+    color: rgba(255, 255, 255, .8)
+}
+
 .sidebar-dark .nav-item .nav-link i {
     color: rgba(255, 255, 255, .3)
 }
 
+.sidebar-dark .logout .nav-link i {
+    color: rgba(255, 255, 255, .3)
+}
+
+
 .sidebar-dark .nav-item .nav-link:active,
 .sidebar-dark .nav-item .nav-link:focus,
 .sidebar-dark .nav-item .nav-link:hover {
+    color: #fff
+}
+
+.sidebar-dark .logout .nav-link:active,
+.sidebar-dark .logout .nav-link:focus,
+.sidebar-dark .logout .nav-link:hover {
     color: #fff
 }
 
@@ -11954,7 +12254,17 @@ a:focus {
     color: #fff
 }
 
+.sidebar-dark .logout .nav-link:active i,
+.sidebar-dark .logout .nav-link:focus i,
+.sidebar-dark .logout .nav-link:hover i {
+    color: #fff
+}
+
 .sidebar-dark .nav-item .nav-link[data-toggle=collapse]::after {
+    color: rgba(255, 255, 255, .5)
+}
+
+.sidebar-dark .logout .nav-link[data-toggle=collapse]::after {
     color: rgba(255, 255, 255, .5)
 }
 
@@ -11962,8 +12272,16 @@ a:focus {
     color: #fff
 }
 
+.sidebar-dark .logout.active .nav-link {
+    color: #FF0000
+}
+
 .sidebar-dark .nav-item.active .nav-link i {
     color: #fff
+}
+
+.sidebar-dark .logout.active .nav-link i {
+    color: #FF0000
 }
 
 .sidebar-dark #sidebarToggle {
@@ -12624,19 +12942,15 @@ body.sidebar-toggled footer.sticky-footer {
 }
 
 .logout button{
-    display: flex;
-    padding: 20px;
     text-decoration: none;
     color: white;
+    left: 50px;
     font-size: 20px;
-    margin-top: 240px;
-    width: 145px; 
-    height: 45px;
-    margin-left: 30px;
-    background-color: red;  
+    margin-top: 150px; 
     border-radius: 10px; 
     align-items: center; 
     justify-content: center;
+    background-color: #FF0000;
 }
 
 .make-me-sticky {
