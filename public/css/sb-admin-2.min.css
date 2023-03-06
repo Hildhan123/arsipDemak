@@ -12944,11 +12944,14 @@ body.sidebar-toggled footer.sticky-footer {
 .logout button{
     text-decoration: none;
     color: white;
-    left: 50px;
     font-size: 20px;
-    margin-top: 150px; 
-    border-radius: 10px; 
-    align-items: center; 
+    margin-left: 15%;
+    margin-top: 125%;
+    padding: 5%;
+    position:relative;
+    display: block;
+    border-radius: 10px;
+    align-items: center;
     justify-content: center;
     background-color: #FF0000;
 }
@@ -12957,6 +12960,5 @@ body.sidebar-toggled footer.sticky-footer {
   position: -webkit-sticky;
 	position: sticky;
 	top: 50px;
-  
   padding: 0 0 0 0;
 }
