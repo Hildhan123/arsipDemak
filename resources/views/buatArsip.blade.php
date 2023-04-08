@@ -36,6 +36,15 @@
                 </select>
             </div>
             <div class="mb-3 mt-4">
+                <label for="jenis" class="form-label">Jenis Arsip</label>
+                <select name="jenis" id="jenis" class="form-control">
+                  <option value=""></option>
+                  <option value="Nota Dinas" @if(old('jenis') == 'Nota Dinas') selected @endif>Nota Dinas</option>
+                  <option value="Proposal" @if(old('jenis') == 'Proposal') selected @endif>Proposal</option>
+                  <option value="Undangan" @if(old('jenis')  == 'Undangan') selected @endif>Undangan</option>
+                </select>
+            </div>
+            <div class="mb-3 mt-4">
                 <label for="tanggal" class="form-label">Tanggal Di Buat</label>
                 <input type="date" class="form-control" id="tanggal" name="tanggal" value="{{old('tanggal')}}">
             </div>

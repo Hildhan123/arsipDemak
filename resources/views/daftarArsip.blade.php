@@ -37,6 +37,7 @@
                     <th>No</th>
                     <th>Judul</th>
                     <th>Dari</th>
+                    <th>Jenis</th>
                     <th>Tahun</th>
                     <th>File</th>
                     <th>Dibuat Oleh</th>
@@ -54,6 +55,7 @@
                     <td data-title="No">{{$no++}}</td>
                     <td data-title="Judul">{{$index->nama}}</td>
                     <td data-title="Dari">{{$index->dari}}</td>
+                    <td data-title="Jenis">{{$index->jenis}}</td>
                     <td data-title="Tahun">@php $tahun = substr($index->tanggal,0,4) @endphp {{$tahun}}</td>
                     <td data-title="File"><a href="{{$index->file}}">Lihat File</a></td>
                     <td data-title="Dibuat Oleh">{{$index->name}}</td>

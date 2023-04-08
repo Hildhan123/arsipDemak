@@ -32,6 +32,7 @@ class userController extends Controller
         $validateData = $request->validate([
             'nama'      => 'required|string',
             'dari'      => 'required|string',
+            'jenis'     => 'required|string',
             'tanggal'   => 'required',
             'file'      => 'required|file|mimes:doc,pdf,docx,jpeg,jpg,png|max:50000',
         ]);
@@ -47,6 +48,7 @@ class userController extends Controller
             'id_user'   => $id,
             'nama'      => $validateData['nama'],
             'dari'      => $validateData['dari'],
+            'jenis'     => $validateData['jenis'],
             'tanggal'   => $validateData['tanggal'],
             'file'      => $path,
             'created_at' => date('Y-m-d H:i:s'),
@@ -69,6 +71,7 @@ class userController extends Controller
         $validateData = $request->validate([
             'nama'      => 'required|string',
             'dari'      => 'required|string',
+            'jenis'     => 'required|string',
             'tanggal'   => 'required',
             'file'      => 'nullable|file|mimes:docx,doc,pdf,jpeg,jpg,png|max:50000',
         ]);
@@ -81,6 +84,7 @@ class userController extends Controller
             'id_user'   => $iduser,
             'nama'      => $validateData['nama'],
             'dari'     => $validateData['dari'],
+            'jenis'     => $validateData['jenis'],
             'tanggal'     => $validateData['tanggal'],
             'updated_at' => date('Y-m-d H:i:s'),
         ]);

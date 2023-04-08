@@ -18,6 +18,7 @@ class CreateArsipsTable extends Migration
             $table->foreignId('id_user');
             $table->string('nama');
             $table->string('dari');
+            $table->string('jenis');
             $table->text('tanggal');
             $table->text('file');
             $table->timestamps();
